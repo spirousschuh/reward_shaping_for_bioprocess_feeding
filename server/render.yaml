@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: ecoli-ranking-challenge
+    runtime: python
+    rootDir: server
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    # SQLite on a persistent disk so teams + submissions survive redeploys.
+    disk:
+      name: challenge-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        value: sqlite:////var/data/challenge.db
+      - key: SUBMISSION_COOLDOWN_SECONDS
+        value: "60"
+      - key: MAX_SUBMISSIONS_PER_TEAM
+        value: "20"
+      # Secrets — set these in the Render dashboard, never in this file.
+      - key: ADMIN_TOKEN
+        sync: false
+      - key: VALIDATION_EXPERT_RANKING
+        sync: false

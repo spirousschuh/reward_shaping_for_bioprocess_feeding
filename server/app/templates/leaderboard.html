@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="{{ refresh_seconds }}">
+  <title>E. coli Ranking Challenge — Leaderboard</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0; padding: 3vh 4vw;
+      background: #10151c; color: #e8eef5;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+    h1 { font-size: 3.2vw; margin: 0 0 2vh; font-weight: 700; letter-spacing: .02em; }
+    p.sub { margin: 0 0 4vh; color: #8a97a6; font-size: 1.4vw; }
+    table { width: 100%; border-collapse: collapse; font-size: 2.6vw; }
+    th, td { text-align: left; padding: 1.1vh 1vw; }
+    th { color: #8a97a6; font-weight: 600; font-size: 1.5vw; text-transform: uppercase;
+         letter-spacing: .08em; border-bottom: 2px solid #2b3644; }
+    tbody tr { border-bottom: 1px solid #1e2732; }
+    td.rank { width: 8vw; color: #8a97a6; }
+    td.tau  { width: 22vw; text-align: right; font-variant-numeric: tabular-nums; }
+    tbody tr:nth-child(1) td { color: #ffd23f; font-weight: 700; }
+    tbody tr:nth-child(2) td { color: #cfd8e3; }
+    tbody tr:nth-child(3) td { color: #d8a878; }
+    .empty { color: #8a97a6; font-size: 1.8vw; margin-top: 6vh; }
+  </style>
+</head>
+<body>
+  <h1>E. coli Ranking Challenge</h1>
+  <p class="sub">Validation leaderboard — best Kendall&nbsp;&tau; per team — refreshes every {{ refresh_seconds }}s</p>
+
+  {% if rows %}
+  <table>
+    <thead>
+      <tr><th>Rank</th><th>Team</th><th style="text-align:right">Kendall &tau;</th></tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td class="rank">{{ row.rank }}</td>
+        <td>{{ row.team }}</td>
+        <td class="tau">{{ "%.3f"|format(row.kendall_tau) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="empty">No submissions yet.</p>
+  {% endif %}
+</body>
+</html>
