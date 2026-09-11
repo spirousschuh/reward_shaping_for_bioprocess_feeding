@@ -10,7 +10,6 @@ dist/
 .venv/
 venv/
 env/
-.env.example
 
 # Jupyter
 .ipynb_checkpoints/

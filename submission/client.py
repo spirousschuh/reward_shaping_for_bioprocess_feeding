@@ -1,6 +1,6 @@
 """Command-line front end for submitting a validation ranking.
 
-    python submission/client.py --team "Team Alpha" --ranking 17191 16736 16742 16748 16738
+    python submission/client.py --team "Team Alpha" --ranking 17193 16737 20285 16742 17191
 
 (the ids after --ranking are just an example order — put your own ranking there)
 

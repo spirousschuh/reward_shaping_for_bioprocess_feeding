@@ -14,25 +14,25 @@ def test_correct_five_accepted(client):
 
 
 def test_missing_experiment_rejected(client):
-    r = _post(client, ["16736", "16738", "16742", "16748"])  # only 4
+    r = _post(client, ["16737", "16742", "17191", "17193"])  # only 4
     assert r.status_code == 422
     assert r.json() == {"accepted": False, "error": "invalid_ranking"}
 
 
 def test_six_experiments_rejected(client):
-    r = _post(client, ["16736", "16738", "16742", "16748", "17191", "16737"])
+    r = _post(client, ["16737", "16742", "17191", "17193", "20285", "16736"])
     assert r.status_code == 422
     assert r.json()["error"] == "invalid_ranking"
 
 
 def test_duplicate_experiment_rejected(client):
-    r = _post(client, ["16736", "16736", "16742", "16748", "17191"])
+    r = _post(client, ["16737", "16737", "17191", "17193", "20285"])
     assert r.status_code == 422
     assert r.json()["error"] == "invalid_ranking"
 
 
 def test_unknown_experiment_rejected(client):
-    r = _post(client, ["16736", "16738", "16742", "16748", "99999"])
+    r = _post(client, ["16737", "16742", "17191", "17193", "99999"])
     assert r.status_code == 422
     assert r.json()["error"] == "invalid_ranking"
 

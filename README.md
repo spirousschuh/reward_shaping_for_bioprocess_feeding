@@ -11,7 +11,7 @@ reproduces an expert's ranking.
 TRAINING                                  VALIDATION
 --------                                  ----------
 6 experiments                             5 experiments
-20294 20285 20293 17193 17201 16737       16736 16738 16742 16748 17191
+20294 20293 17201 16738 16748 16736       16737 16742 17191 17193 20285
 Expert ranking is KNOWN.                  Expert ranking is HIDDEN (on the server).
 You evaluate LOCALLY in the notebook.     You SUBMIT a ranking; the server scores it.
 Metric: Kendall's tau-b.                  Metric: Kendall's tau-b. Leaderboard.
@@ -21,7 +21,7 @@ The **competition score is the validation Kendall tau-b**, computed server-side 
 ranking that is **not in this repository in any form**. The training stage is only for
 developing and sanity-checking your reward function.
 
-Training expert ranking (best → worst): `20294, 20285, 20293, 17193, 17201, 16737`.
+Training expert ranking (best → worst): `20294, 20293, 17201, 16738, 16748, 16736`.
 The validation ids above are in plain numeric order and carry no ranking information.
 
 ## Setup

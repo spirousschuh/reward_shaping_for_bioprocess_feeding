@@ -23,13 +23,13 @@ __all__ = [
 
 ### The expert's order for the training reactors, best first. Public on purpose --- this is
 ### the feedback signal participants develop against.
-TRAINING_EXPERT_RANKING = [20294, 20285, 20293, 17193, 17201, 16737]
+TRAINING_EXPERT_RANKING = [20294, 20293, 17201, 16738, 16748, 16736]
 TRAINING_IDS = list(TRAINING_EXPERT_RANKING)
 
 ### The validation reactors. THIS LIST IS IN ASCENDING NUMERIC ORDER AND SAYS NOTHING ABOUT
 ### THE EXPERT RANKING. The expert's order for these five is held only by the challenge
 ### server, as an environment variable; it is deliberately absent from this repository.
-VALIDATION_IDS = [16736, 16738, 16742, 16748, 17191]
+VALIDATION_IDS = [16737, 16742, 17191, 17193, 20285]
 
 ALL_IDS = sorted(TRAINING_IDS + VALIDATION_IDS)
 

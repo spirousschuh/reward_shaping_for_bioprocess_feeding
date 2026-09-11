@@ -29,19 +29,19 @@ def test_one_adjacent_swap():
     assert kendall_tau_b(swapped, m) == pytest.approx(0.8)
 
 
-# A synthetic tie map — NOT the competition ranking, just enough to exercise tau-b with a
-# tied pair (16742 / 16748, the two the expert could not separate).
-_TIE_MAP = {"16736": 0.0, "17191": 1.0, "16742": 2.5, "16748": 2.5, "16738": 4.0}
+# A synthetic tie map over the validation ids — NOT the competition ranking, just enough to
+# exercise tau-b's handling of a tied pair (arbitrarily, 16742 / 17193 here).
+_TIE_MAP = {"16737": 0.0, "17191": 1.0, "16742": 2.5, "17193": 2.5, "20285": 4.0}
 
 
-def test_tie_16742_16748_orientation_does_not_matter():
-    a = kendall_tau_b(["16736", "17191", "16742", "16748", "16738"], _TIE_MAP)
-    b = kendall_tau_b(["16736", "17191", "16748", "16742", "16738"], _TIE_MAP)
+def test_tie_orientation_does_not_matter():
+    a = kendall_tau_b(["16737", "17191", "16742", "17193", "20285"], _TIE_MAP)
+    b = kendall_tau_b(["16737", "17191", "17193", "16742", "20285"], _TIE_MAP)
     assert a == pytest.approx(b)
 
 
 def test_tie_matches_scipy_reference():
-    order = ["17191", "16736", "16742", "16748", "16738"]
+    order = ["17191", "16737", "16742", "17193", "20285"]
     x = [order.index(e) for e in order]
     y = [_TIE_MAP[e] for e in order]
     assert kendall_tau_b(order, _TIE_MAP) == pytest.approx(float(kendalltau(x, y).statistic))

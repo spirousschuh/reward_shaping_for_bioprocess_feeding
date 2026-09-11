@@ -54,7 +54,7 @@ or grouped, where an inner list is a tie the expert could not separate:
 [["<id>"],["<id>","<id>"],["<id>"],["<id>"]]
 ```
 
-It must contain exactly the five ids `16736 16738 16742 16748 17191`, each once, in the
+It must contain exactly the five ids `16737 16742 17191 17193 20285`, each once, in the
 expert's order (which is not written down anywhere in this repository — paste it straight
 into the Render dashboard). In development, leaving it empty falls back to a
 clearly-labelled **dummy** order (ascending numeric) with a warning — fine for local
@@ -74,7 +74,7 @@ Then `http://localhost:8000/leaderboard` and:
 
 ```bash
 curl -X POST localhost:8000/api/submit -H 'content-type: application/json' \
-  -d '{"team":"Team Alpha","ranking":["16736","16738","16742","16748","17191"]}'
+  -d '{"team":"Team Alpha","ranking":["16737","16742","17191","17193","20285"]}'
 ```
 
 Run the tests:

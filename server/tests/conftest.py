@@ -18,7 +18,7 @@ os.environ["ADMIN_TOKEN"] = "test-admin-token"
 os.environ["SUBMISSION_COOLDOWN_SECONDS"] = "60"
 os.environ["MAX_SUBMISSIONS_PER_TEAM"] = "20"
 # Flat (no-tie) dummy order the API-level tests score against. NOT the real ranking.
-os.environ["VALIDATION_EXPERT_RANKING"] = '["16736","16738","16742","16748","17191"]'
+os.environ["VALIDATION_EXPERT_RANKING"] = '["16737","16742","17191","17193","20285"]'
 # -------------------------------------------------------------------------------------- -
 
 from fastapi.testclient import TestClient  # noqa: E402
@@ -30,7 +30,7 @@ from app import models  # noqa: E402
 
 ADMIN_TOKEN = "test-admin-token"
 # The order the conftest env installs as the (dummy) expert ranking.
-DUMMY_EXPERT_ORDER = ["16736", "16738", "16742", "16748", "17191"]
+DUMMY_EXPERT_ORDER = ["16737", "16742", "17191", "17193", "20285"]
 
 
 @pytest.fixture()

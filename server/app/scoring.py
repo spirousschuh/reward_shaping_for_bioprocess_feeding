@@ -7,7 +7,7 @@ The five validation experiment ids are public; their *order* is not (that lives 
 from scipy.stats import kendalltau
 
 # Public: the five validation experiment ids, ascending numeric order (no ranking meaning).
-VALIDATION_IDS = ["16736", "16738", "16742", "16748", "17191"]
+VALIDATION_IDS = ["16737", "16742", "17191", "17193", "20285"]
 _VALIDATION_ID_SET = set(VALIDATION_IDS)
 
 
