@@ -41,7 +41,7 @@ async def lifespan(_: FastAPI):
     yield
 
 
-app = FastAPI(title="E. coli Ranking Challenge", lifespan=lifespan)
+app = FastAPI(title="E. coli Reward Ranking Challenge", lifespan=lifespan)
 
 
 # --------------------------------------------------------------------------- utils

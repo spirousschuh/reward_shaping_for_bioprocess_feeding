@@ -14,9 +14,8 @@ from .ranking import VALIDATION_IDS
 
 __all__ = ['API_URL', 'validate_ranking_shape', 'submit_validation_ranking']
 
-### The one place to configure the leaderboard server. The workshop organiser replaces this
-### with the deployed Render URL.
-API_URL = 'https://ecoli-ranking-challenge.onrender.com'
+### The one place to configure the leaderboard server.
+API_URL = 'https://reward-shaping-for-bioprocess-feeding.onrender.com'
 
 _VALIDATION_ID_STRINGS = {str(eid) for eid in VALIDATION_IDS}
 
