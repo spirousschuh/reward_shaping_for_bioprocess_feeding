@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
@@ -64,6 +64,12 @@ def _require_admin(x_admin_token: str | None) -> None:
 
 
 # -------------------------------------------------------------------------- public
+
+@app.get("/", include_in_schema=False)
+def root() -> RedirectResponse:
+    """Nothing lives at the bare root; send a browser straight to the leaderboard."""
+    return RedirectResponse(url="/leaderboard")
+
 
 @app.get("/healthz")
 def healthz() -> dict:
