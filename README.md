@@ -27,7 +27,7 @@ The validation ids above are in plain numeric order and carry no ranking informa
 ## Setup
 
 ```bash
-python -m venv .venv
+python3 -m venv .venv
 . .venv/bin/activate
 pip install -e .
 jupyter lab notebooks/
